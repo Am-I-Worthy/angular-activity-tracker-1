@@ -1,0 +1,12 @@
+<p *ngIf="show">No activities to track! Start by adding one</p>
+<div>
+  <ol style="list-style: none; padding: 0" >
+    <li *ngFor="let el of colr">
+      <input type="checkbox" name={{el}}>
+      <label for={{el}}>{{el}}</label>
+    </li>
+  </ol>
+</div>
+<input [(ngModel)]="element">
+<button (click)="onClick()">Add an Activity</button>
+<button (click)="onClear()">Clear All</button>
