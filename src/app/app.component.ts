@@ -6,19 +6,35 @@ import { Component, VERSION, OnInit } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent{
-  public element = "hello";
-  public colr = [];
-  public show = (this.colr.length == 0) ? true : false;
-  public showList = (this.colr.length == 0) ? false : true;
+  color = 'black';
+  public element = "";
+  public todoel = [];
+  public todoCheckColor = [];
+  public todoCheckDec = [];
+  public show = (this.todoel.length == 0) ? true : false;
+  public showList = (this.todoel.length == 0) ? false : true;
   onClick(){
-    if(this.element.length != 1){
-    this.colr.push(this.element);
+    if(this.element.length != 1 && this.element.length != 0){
+    this.todoel.push(this.element);
+    this.todoCheckColor.push('black');
+    this.todoCheckDec.push('none');
     this.show = false;
     this.element = " ";
     }
   }
   onClear(){
-    this.colr = [];
+    this.todoel = [];
     this.show = true;
+  }
+  onCheck(value){
+    var inde = this.todoel.indexOf(value);
+    if(this.todoCheckColor[inde] == 'black'){
+      this.todoCheckColor[inde] = 'red';
+      this.todoCheckDec[inde] = 'line-through'
+    }else{
+      this.todoCheckColor[inde] = 'black';
+      this.todoCheckDec[inde] = 'none'
+    }
+    this.color = 'red';
   }
 }
